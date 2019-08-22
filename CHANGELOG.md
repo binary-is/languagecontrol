@@ -8,3 +8,6 @@
 
 ## 1.0.2
 * Python package requirements updated.
+
+## 1.0.3
+* Non-functional changes for compatibility with Django 2.x.
