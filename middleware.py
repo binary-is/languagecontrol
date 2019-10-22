@@ -1,10 +1,6 @@
-class LanguageControlMiddleware():
-    def __init__(self, get_response):
-        self.get_response = get_response
+from django.utils.deprecation import MiddlewareMixin
 
-    def __call__(self, request):
-        return self.get_response(request)
-
+class LanguageControlMiddleware(MiddlewareMixin):
     def process_request(self, request):
-        if request.META.has_key('HTTP_ACCEPT_LANGUAGE'):
+        if 'HTTP_ACCEPT_LANGUAGE' in request.META:
             del request.META['HTTP_ACCEPT_LANGUAGE']
